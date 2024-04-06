@@ -1,0 +1,267 @@
+/*
+CSWD  CA2 (2022) GD1b - Samuel Sukovsky
+
+     built upon the foundations of 'Example 1 (CSWD 2021)' by Enda Finn.
+*/
+
+/* global font */
+*
+{
+	font-family:Arial;
+}
+
+/* core settings and internal variables */
+html
+{
+	scroll-behavior:smooth;
+	--topnavwidth: 115px;
+	--topnavheight: 49px;
+	--sidebar: 70px;
+}
+/* bold text is coloured */
+b
+{
+	color: var(--header);
+}
+
+/* background import and settings */
+body
+{
+	background-image: url('../images/Raasenkoski.png'); /* commissioned from my sister (@x_ajas_x on ig), 2022 */
+	background-size: cover;
+	background-position: center;
+}
+
+/* the all encompassing div */
+#everything
+{
+	width:90%;
+	max-width:1000px;
+	height:1440px;
+	margin:auto;
+}
+
+/* the main div */
+#main
+{
+	font-size:18px;
+	width:100%;
+	height:90%;
+	float:left;
+	background-color:var(--maincolor);
+}
+
+/* invisible div to create a gap on top */
+#top
+{
+	width:100%;
+	height:10%;
+	float:left;
+}
+
+/* horizontal site navigation bar, modified the code available at https://www.w3schools.com/css/css_navbar_horizontal.asp */
+#topnav
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:var(--detail);
+	position:sticky;
+	top:0;
+}
+
+#topnav li
+{
+	width:var(--topnavwidth);
+	float:left;
+	border-right:1px solid var(--maincolor);
+}
+
+/* vertical page navigation bar, modified the code available at https://www.w3schools.com/css/css_navbar_vertical.asp */
+#sidenav
+{
+	width:var(--sidebar);
+	height:calc(100% - var(--topnavheight));
+	float:right;
+	margin:0;
+	padding:0;
+	background-color:var(--contrast);
+}
+
+#sidenav ul
+{
+	width:100%;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	position:sticky;
+	top:var(--topnavheight);
+}
+
+#sidenav li
+{
+	width:100%;
+	float:right;
+	border-bottom:1px solid var(--maincolor);
+}
+
+/* navbar links */
+li a
+{
+	display:block;
+	color:var(--maincolor);
+	text-align:center;
+	padding:14px 16px;
+	text-decoration: none;
+}
+
+#topnav li a:hover
+{
+	background-color:var(--detailhover);
+}
+
+#active
+{
+	background-color:var(--detailhover);
+}
+
+#sidenav li a:hover
+{
+	background-color:var(--contrasthover);
+}
+
+.continentlinksActive
+{
+	background-color:var(--contrasthover);
+}
+
+/* thin bar to make scrolling look prettier */
+#contentpadding
+{
+	width:calc(100% - var(--sidebar));
+	height:10px;
+	float:right;
+	margin:0;
+	padding:0;
+	position:sticky;
+	top:var(--topnavheight);
+}
+
+/* the div with the contents */
+#content
+{
+	color:var(--text);
+	size:cover;
+	margin:40px;
+	margin-right:calc(40px + var(--sidebar));
+}
+
+/* the contents */
+.par
+{
+	width:100%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+/* div for big couloured text */
+.header
+{
+	font-size:34px;
+	float:left;
+	margin-right:10px;
+}
+
+/* mediun coloured text */
+.title
+{
+	font-size:18px;
+	float:left;
+	margin-right:5px;
+}
+
+/* taken (and modified) from https://www.w3schools.com/howto/howto_js_tabs.asp */
+.contBar
+{
+	overflow:hidden;
+	border:1px solid #aaaaaa;
+}
+
+/* Style the buttons that are used to open the tab content */
+.contBar button
+{
+	width:100%;
+	float:right;
+	border-bottom:1px solid var(--maincolor);
+	display:block;
+	background-color:var(--contrasthover);
+	text-align:center;
+	padding:14px 16px;
+	text-decoration: none;
+	color:var(--maincolor);
+}
+
+/* Change background color of buttons on hover */
+.contBar button:hover
+{
+	background-color:var(--contrast);
+}
+
+/* Create an active/current tablink class */
+.contBar button.active
+{
+	background-color:var(--contrast);
+}
+
+#map
+{
+	border: 1px solid #aaaaaa;
+}
+/* Style the tab content */
+.continent
+{
+	display: none;
+	padding: 16px 16px;
+	border: 1px solid #aaaaaa;
+	border-top: none;
+}
+
+.continent p
+{
+	margin-top:0px;
+}
+
+/* Style the tab content */
+.nation
+{
+	display: none;
+	padding: 16px 16px;
+}
+
+.continent ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.continent li
+{
+	display: block;
+	margin-right: 60px;
+	float: left;
+}
+
+.form
+{
+	width: 300px;
+	float: left;
+}
+
+input
+{
+	margin-bottom: 5px;
+}

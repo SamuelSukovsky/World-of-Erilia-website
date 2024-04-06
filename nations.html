@@ -1,0 +1,975 @@
+<!--
+CSWD  CA2 (2022) GD1b - Samuel Sukovsky
+	 
+	 built upon the foundations of 'Example 1 (CSWD 2021)' by Enda Finn.
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+	
+        <title>Welcome to Erilia!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="styles/erilia.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- Setup of webpage colour palette -->
+		<style>
+			:root
+			{
+				--maincolor:rgba(255, 255, 255, .8);
+				--detail:#557088;
+				--detailhover: #7790aa;
+				--header:#005066;
+				--contrast:#333333;
+				--contrasthover:#555555;
+				--text:#000000;
+			}
+		</style>
+		
+		<!-- Load Script -->
+		<script src="scripts/Map.js"></script>
+		
+    </head>
+	
+	<!-- The body of the site, contains the background image. -->
+    <body onload="startup()">
+	
+		<!-- The div containing everything, centered -->
+		<div id="everything">
+		
+			<!-- An empty div to make space above the content. -->
+			<div id="top"></div>
+			
+			<!-- The main div -->
+			<div id="main">
+			
+				<!-- Top and side navigation bars, html and css taken from those available at https://www.w3schools.com/css/css_navbar_vertical.asp and edited. -->
+				<ul id="topnav">
+					
+					<li>
+						<a href="index.html">
+							Home
+						</a>
+					</li>
+					
+					<li>
+						<a id="active" href="nations.html">
+							Nations
+						</a>
+					</li>
+					
+					<li>
+						<a href="newsletter.html">
+							Newsletter
+						</a>
+					</li>
+					
+				</ul>
+				
+				<!-- map navigation bar -->
+				<div id="sidenav">
+				
+					<ul>
+						<!-- primary button, opens continent info and reveals secondary buttons -->
+						<li class="continentlinks" id="Ln" onclick="openContinent('Ln', 'Ltn', 'Lutena'), drawMap(event, 18, 2200, 7900, 'ct', 1)">
+							<!-- scrolls up, the text is an acronym to fit in the nav bar -->
+							<a href="#content">
+								Ln
+							</a>
+							
+						</li>
+						<!-- continent bar div, is hidden on load -->
+						<div class="contBar" id="Ltn">
+							<!-- secondary button, opens nation info. text is an acronym to fit in the nav bar -->
+							<button class="nationlinks" onclick="openNation('Ana', 'Alneia'), drawMap('click', 12, 7200, 10100, 'st', 0)">
+							
+								Ana
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Aia', 'Arinia'), drawMap('click', 6, 9400, 10150, 'st', 1)">
+							
+								Aia
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Aua', 'Auria'), drawMap('click', 5, 5700, 9350, 'st', 2)">
+							
+								Aua
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Bia', 'Baletia'), drawMap('click', 5, 5722, 10500, 'st', 3)">
+							
+								Bia
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Bin', 'Berminia'), drawMap('click', 6, 10700, 9650, 'st', 4)">
+							
+								Bin
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Bum', 'Bornum'), drawMap('click', 6, 10200, 9950, 'st', 5)">
+							
+								Bum
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Bol', 'Boule'), drawMap('click', 15, 2200, 5400, 'st', 7)">
+							
+								Bol
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Cri', 'Citri'), drawMap('click', 11, 4200, 8950, 'st', 9)">
+							
+								Cri
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Dnt', 'Darmont'), drawMap('click', 17.5, -600, 7950, 'st', 10)">
+							
+								Dnt
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Eia', 'Erania'), drawMap('click', 5, 9200, 9700, 'st', 11)">
+							
+								Eia
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Hnd', 'Hinland'), drawMap('click', 4, 8800, 10650, 'st', 12)">
+							
+								Hnd
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Nich', 'Newich'), drawMap('click', 4, 11000, 9350, 'st', 13)">
+							
+								Nich
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Sia', 'Santia'), drawMap('click', 8, 2625, 9825, 'st', 14)">
+							
+								Sia
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Trg', 'Trogia'), drawMap('click', 5, 4950, 8050, 'st', 15)">
+							
+								Trg
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Yng', 'Yeondong'), drawMap('click', 4, 10600, 10150, 'st', 16)">
+							
+								Yng
+							
+							</button>
+							
+						</div>
+						
+						<li class="continentlinks" id="Tn" onclick="openContinent('Tn', 'Tnn', 'Tainarn'), drawMap(event, 15, 0, 5000, 'ct', 2)">
+						
+							<a href="#content">
+								Tn
+							</a>
+						
+						</li>
+						
+						<div class="contBar" id="Tnn">
+					
+							<button class="nationlinks" onclick="openNation('Elt', 'Edlit')">
+						
+								Elt
+							
+							</button>
+						
+							<button class="nationlinks" onclick="openNation('Krg', 'Karagh')">
+						
+								Krg
+							
+							</button>
+						
+							<button class="nationlinks" onclick="openNation('Ria', 'Rogentia')">
+						
+								Ria
+							
+							</button>
+						
+						</div>
+						
+						<li class="continentlinks" id="Zr" onclick="openContinent('Zr', 'Zzr', 'Zadzar'), drawMap(event, 25, 0, 0, 'ct', 3)">
+						
+							<a href="#content">
+								Zr
+							</a>
+						
+						</li>
+						
+						<div class="contBar" id="Zzr">
+					
+							<button class="nationlinks" onclick="openNation('Blw', 'Below')">
+						
+								Blw
+							
+							</button>
+							
+							<button class="nationlinks" onclick="openNation('Bol', 'Boule'), drawMap('click', 15, 2200, 5400, 'st', 8)">
+							
+								Bol
+							
+							</button>
+						
+							<button class="nationlinks" onclick="openNation('Nfg', 'Norforge')">
+						
+								Nfg
+							
+							</button>
+						
+							<button class="nationlinks" onclick="openNation('Tva', 'Tuvia')">
+						
+								Tva
+							
+							</button>
+						
+						</div>
+					
+					</ul>
+					
+				</div>
+				
+				<!-- A thin sticky bar -->
+				<div id="contentpadding"></div>
+				
+				<!-- The entirety of the pages content -->
+				<div id="content">					
+					
+					<!-- The blocks of text and images (tba) -->
+					<div id="CaP" class = "par">
+						<!-- The heading -->
+						<div class="header">
+							<b><u>Nations of Erilia</u></b>
+						</div>
+						
+						<p>are plentiful and diverse, from the smallest merchant kingdoms, to the greatest supernations. With international relations sometimes being rather strenuous, and great rivalries abound, the continents are on the cusp of war almost at all times.</p>
+						
+					</div>
+					<!-- map canvas -->
+					<canvas id="map"></canvas>
+					
+					<!-- taken (and modified) from https://www.w3schools.com/howto/howto_js_tabs.asp -->
+					
+					<!-- primary (continent) divs -->
+					<div id="Lutena" class = "continent">
+					
+						<div class="header">
+							<b><u>Lutena</u></b>
+						</div>
+						
+						<p>is the eastmost part of the Taina-Lute-Zadzar continental landmass. It is the cradle of several human civilizations, and the most culturally diverse part of the world.</p>
+						
+						<p>Most nations of Lutena have roots in empires of old, and despite their fall from glory, they all remember a golden age of their own with pride.</p>
+						
+						
+						<!-- secondary (nation) divs -->
+						<div id="Alneia" class="nation">
+					
+							<div class="title">
+								<b>Kingdom of Alneia</b>
+							</div>
+							<p>is a constitutional monarchy situated on the eastern tip of the Euracini peninsula.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Kingham
+								</li>
+								
+								<li>
+									🏠 7,2 million
+								</li>
+								
+								<li>
+									💬 Cecanolan, Laurian
+								</li>
+								
+								<li>
+									🗺️ 277,179 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+						<div id="Arinia" class="nation">
+						
+							<div class="title">
+								<b>Arinian Republic</b>
+							</div>
+							
+							<p>is a democratic nation on the southern end of the Euracini peninsula.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Basianola
+								</li>
+								
+								<li>
+									🏠 17,6 million
+								</li>
+								
+								<li>
+									💬 Alnan
+								</li>
+								
+								<li>
+									🗺️ 596,615 km<sup>2</sup>
+								</li>
+								
+							</ul>
+						
+						</div>
+						
+						<div id="Auria" class="nation">
+						
+							<div class="title">
+								<b>Aurian Republic</b>
+							</div>
+							
+							<p>is a democratic nation on the northern bank of lake Vigne.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Conflans
+								</li>
+								
+								<li>
+									🏠 2,8 million
+								</li>
+								
+								<li>
+									💬 Viles
+								</li>
+								
+								<li>
+									🗺️ 106,618 km<sup>2</sup>
+								</li>
+								
+							</ul>
+						
+						</div>
+						
+						<div id="Baletia" class="nation">
+						
+							<div class="title">
+								<b>Baletian Republic</b>
+							</div>
+							
+							<p>is a democratic nation on the southern bank of lake Viles.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Montry
+								</li>
+								
+								<li>
+									🏠 3,2 million
+								</li>
+								
+								<li>
+									💬 Viles
+								</li>
+								
+								<li>
+									🗺️ 127,965 km<sup>2</sup>
+								</li>
+								
+							</ul>
+						
+						</div>
+						
+						<div id="Berminia" class="nation">
+						
+							<div class="title">
+								<b>Republic of Berminia</b>
+							</div>
+							
+							<p>is a democratic nation on the east of the Euracini peninsula.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Bourowen
+								</li>
+								
+								<li>
+									🏠 15,2 million
+								</li>
+								
+								<li>
+									💬 Alnan, Labertei
+								</li>
+								
+								<li>
+									🗺️ 479,863 km<sup>2</sup>
+								</li>
+								
+							</ul>
+						
+						</div>
+						
+						<div id="Bornum" class="nation">
+						
+							<div class="title">
+								<b>Republic of Bornum</b>
+							</div>
+							
+							<p>is a democratic nation in the middle of the Euracini peninsula.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Vinei
+								</li>
+								
+								<li>
+									🏠 8,5 million
+								</li>
+								
+								<li>
+									💬 Laurian
+								</li>
+								
+								<li>
+									🗺️ 266,346 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Boule" class="nation">
+						
+							<div class="title">
+								<b>Republic of Boule</b>
+							</div>
+							
+							<p>is a democratic nation stretched from the north-west of the Euracini peninsula to the center of Zadzar. It is one of the most diverse nations, with many cultures and races present.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Tatorincse
+								</li>
+								
+								<li>
+									🏠 51,2 million
+								</li>
+								
+								<li>
+									💬 Polmaszaldan, Ulusian, Cecanolan
+								</li>
+								
+								<li>
+									🗺️ 4,739,651 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Citri" class="nation">
+						
+							<div class="title">
+								<b>Citrian Commonwealth</b>
+							</div>
+							
+							<p>is a united commonwealth of nations on the eastern bank of lake Vigne.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Lorvilles
+								</li>
+								
+								<li>
+									🏠 40,8 million
+								</li>
+								
+								<li>
+									💬 Viles
+								</li>
+								
+								<li>
+									🗺️ 3,249,426 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Darmont" class="nation">
+						
+							<div class="title">
+								<b>Federation of Darmont</b>
+							</div>
+							
+							<p>is a democratic federation covering most of the western coast of Lutena.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Ceaulay
+								</li>
+								
+								<li>
+									🏠 45,3 million
+								</li>
+								
+								<li>
+									💬 Darmian, Viles
+								</li>
+								
+								<li>
+									🗺️ 5,858,378 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Erania" class="nation">
+						
+							<div class="title">
+								<b>Eranian Republic</b>
+							</div>
+							
+							<p>is a democratic nation on the north-west of the Euracini peninsula.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Terve
+								</li>
+								
+								<li>
+									🏠 14,1 million
+								</li>
+								
+								<li>
+									💬 Cecanolan, Seogan
+								</li>
+								
+								<li>
+									🗺️ 607,269 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Hinland" class="nation">
+						
+							<div class="title">
+								<b>Grand Duchy of Hinland</b>
+							</div>
+							
+							<p>is a constitutional monarchy on the south-west of the Euracini peninsula.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Castelnuovo
+								</li>
+								
+								<li>
+									🏠 8,8 million
+								</li>
+								
+								<li>
+									💬 Cecanolan
+								</li>
+								
+								<li>
+									🗺️ 340,922 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Newich" class="nation">
+						
+							<div class="title">
+								<b>Newich Theocracy</b>
+							</div>
+							
+							<p>is a theocratic nation located on an island just north of the Euracini peninsula.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Uxbrid
+								</li>
+								
+								<li>
+									🏠 325 thousand
+								</li>
+								
+								<li>
+									💬 Alnan
+								</li>
+								
+								<li>
+									🗺️ 8,523 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Santia" class="nation">
+						
+							<div class="title">
+								<b>Santian Republic</b>
+							</div>
+							
+							<p>is a democratic nation in the middle the western coast of Lutena.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Camacas
+								</li>
+								
+								<li>
+									🏠 19,7 million
+								</li>
+								
+								<li>
+									💬 Carnatan
+								</li>
+								
+								<li>
+									🗺️ 862,961 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Trogia" class="nation">
+						
+							<div class="title">
+								<b>Trogian Republic</b>
+							</div>
+							
+							<p>is a democratic nation in the middle of the Euracini peninsula.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Carmoes
+								</li>
+								
+								<li>
+									🏠 12,5 million
+								</li>
+								
+								<li>
+									💬 Darmian, Viles
+								</li>
+								
+								<li>
+									🗺️ 958,835 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Yeondong" class="nation">
+						
+							<div class="title">
+								<b>Yeondongian Kingdom</b>
+							</div>
+							
+							<p>is a constitutional monarchy in the middle of the Euracini peninsula. It is the most important economic region of Lutena.</p>
+							
+							<p>The capital city, Yeong, is the largest and most culturally and technologically advanced city in the whole world. It covers the entirety of the Yeong island, situated in the center of Yeongnim bay.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Yeong
+								</li>
+								
+								<li>
+									🏠 21,3 million
+								</li>
+								
+								<li>
+									💬 Seogan, Laurian
+								</li>
+								
+								<li>
+									🗺️ 223,730 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+					
+					<div id="Tainarn" class="continent">
+					
+						<div class="header">
+							<b><u>Tainarn</u></b>
+						</div>
+						
+						<p>is the southmost part of the Lute-Taina-Zadzar continental landmass. With widespread human and orc populations and cultures, Tainarn has both the most unified and the most ruthlessly competitive nations in the world.</p>
+						
+						<div id="Edlit" class="nation">
+					
+							<div class="title">
+								<b>Republic of Edlit</b>
+							</div>
+						
+							<p>is a democratic nation on the north-east of Tainarn.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Naruttileq
+								</li>
+								
+								<li>
+									🏠 20,3 million
+								</li>
+								
+								<li>
+									💬 Sidylian, Utkash
+								</li>
+								
+								<li>
+									🗺️ 1,619,384 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+						<div id="Karagh" class="nation">
+					
+							<div class="title">
+								<b>Corporatocracy of Karagh</b>
+							</div>
+						
+							<p>is corporatocratic nation on the north-west of Tainarn. Majority of the population are orcs, with dwarven, goliath, and human minorities.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Conrave
+								</li>
+								
+								<li>
+									🏠 26,6 million
+								</li>
+								
+								<li>
+									💬 Utkash
+								</li>
+								
+								<li>
+									🗺️ 3,302,692 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+						<div id="Rogentia" class="nation">
+					
+							<div class="title">
+								<b>Rogentia</b>
+							</div>
+						
+							<p>is a costitutional monarchy covering most of the eastern part of Rheinheim peninsula. It is the core part of the <b>Rogentian Empire</b>, one of the worlds superpowers.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Lausenheim
+								</li>
+								
+								<li>
+									🏠 50,5 million
+								</li>
+								
+								<li>
+									💬 Rheinan
+								</li>
+								
+								<li>
+									🗺️ 1,992,269 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+					</div>
+
+					<div id="Zadzar" class="continent">
+					
+						<div class="header">
+							<b><u>Zadzar</u></b>
+						</div>
+						
+						<p>is the northmost part of the Lute-Taina-Zadzar continental landmass. It is a home to the majority of dwarves, gnomes, and halflings, but also to many humans.</p>
+						
+						<p>Zadzar is the continent of large nations, including the sigle largest one by both area and population.</p>
+
+						<div id="Below" class="nation">
+					
+							<div class="title">
+								<b>Belowin Republic</b>
+							</div>
+						
+							<p>is a democratic nation on the west of Zadzar. The population are halflings, and any who chose to live amongst them.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Gloombersi
+								</li>
+								
+								<li>
+									🏠 7,7 million
+								</li>
+								
+								<li>
+									💬 Angshiran
+								</li>
+								
+								<li>
+									🗺️ 1,203,884 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+						<div id="Boule" class="nation">
+						
+							<div class="title">
+								<b>Republic of Boule</b>
+							</div>
+							
+							<p>is a democratic nation stretched from the north-west of the Euracini peninsula to the center of Zadzar. It is one of the most diverse nations, with many cultures and races present.</p>
+							
+							<ul>
+								
+								<li>
+									☆ Tatorincse
+								</li>
+								
+								<li>
+									🏠 51,2 million
+								</li>
+								
+								<li>
+									💬 Polmaszaldan, Ulusian, Cecanolan
+								</li>
+								
+								<li>
+									🗺️ 4,739,651 km<sup>2</sup>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+						<div id="Norforge" class="nation">
+					
+							<div class="title">
+								<b>Norforge Union</b>
+							</div>
+						
+							<p>is a socialist union of nations on the north of Zadzar. Majority population is dwarven, with gnomish, goliath, halfling, and human minorities. It is one of the superpowers of the world.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Gathunar
+								</li>
+								
+								<li>
+									🏠 42,9 million
+								</li>
+								
+								<li>
+									💬 Ulusian, Narukthian, Kuleqian
+								</li>
+								
+								<li>
+									🗺️ 13,445,153 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+						
+						<div id="Tuvia" class="nation">
+					
+							<div class="title">
+								<b>United Republic of Tuvia</b>
+							</div>
+						
+							<p>is a democratic nation on the south-east of Zadzar. The majority of tuvian population is human, with a dwarvish minority in the west.</p>
+							
+							<ul>
+							
+								<li>
+									☆ Ruottoivi
+								</li>
+								
+								<li>
+									🏠 56 million
+								</li>
+								
+								<li>
+									💬 Vengrian, Polmaszald, Ulusian
+								</li>
+								
+								<li>
+									🗺️ 4,559,821 km<sup>2</sup>
+								</li>
+								
+							</ul>
+					
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+    </body>
+	
+</html>

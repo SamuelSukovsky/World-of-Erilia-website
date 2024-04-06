@@ -1,0 +1,177 @@
+<!--
+CSWD  CA2 (2022) GD1b - Samuel Sukovsky
+	 
+	 built upon the foundations of 'Example 1 (CSWD 2021)' by Enda Finn.
+-->
+
+<!DOCTYPE html>
+<html>
+	<!-- Edited slightly to be more relevant. -->
+    <head>
+
+        <title>Welcome to Erilia!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="styles/erilia.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- Setup of webpage colour palette -->
+		<style>
+			:root
+			{
+				--maincolor:rgba(255, 255, 255, .8);
+				--detail:#555599;
+				--detailhover: #6666b0;
+				--header:#000077;
+				--contrast:#333333;
+				--contrasthover:#555555;
+				--text:#000000;
+			}
+		</style>
+		
+    </head>
+	
+	<!-- The body of the site, contains the background image. -->
+    <body>
+	
+		<!-- The div containing everything, centered -->
+		<div id="everything">
+		
+			<!-- An empty div to make space above the content. -->
+			<div id="top"></div>
+			
+			<!-- The main div -->
+			<div id="main">
+			
+				<!-- Top and side navigation bars, html and css taken from those available at https://www.w3schools.com/css/css_navbar_vertical.asp and edited. -->
+				<ul id="topnav">
+					
+					<li>
+						<a id="active" href="index.html">
+							Home
+						</a>
+					</li>
+					
+					<li>
+						<a href="nations.html">
+							Nations
+						</a>
+					</li>
+					
+					<li>
+						<a href="newsletter.html">
+							Newsletter
+						</a>
+					</li>
+					
+				</ul>
+				
+				<div id="sidenav">
+				
+					<ul>
+					
+						<li>
+							<a href="#top">
+								WoE
+							</a>
+						</li>
+					
+						<li>
+							<a href="#CaP">
+								CaP
+							</a>
+						</li>
+					
+						<li>
+							<a href="#NaCG">
+								NaCG
+							</a>
+						</li>
+						
+						<li>
+							<a href="#HaM">
+								HaM
+							</a>
+						</li>
+					
+					</ul>
+					
+				</div>
+				
+				<!-- A thin sticky bar -->
+				<div id="contentpadding"></div>
+				
+				<!-- The entirety of the pages content -->
+				<div id="content">					
+					
+					<!-- The blocks of text and images (tba) -->
+					<div id="CaP" class = "par">
+					
+						<!-- The header -->
+						<div class="header">
+							<b><u>World of Erilia</u></b>
+						</div>
+						
+						<p>is a modern fantasy setting designed by <i>Samuel Sukovský</i> as a foundation for stories experienced through the medium of <b>Dungeons and Dragons</b>, <i>"a&nbsp;collaborative storytelling game where one person plays the narrator and supporting cast while everyone else plays a main character."</i><!-- Haime, J. (2020), medium.com [online] available at: https://medium.com/@jackson.haime/how-to-explain-dnd-to-your-friends-that-dont-play-465ca95e9122 accessed: 27. 10. 2022 --></p>
+						
+
+						<p>Immerse yourself in the intricate era of <i>change and progress</i>, in the world of <i>nations and covert guilds</i>, and in stories of <i>heroes and monsters</i>, either as an adventurer, or as the game master!</p>
+						
+					</div>
+					
+					<hr>
+					
+					<div id="NaCG" class = "par">
+					
+						<div class="header">
+							<b><u>Change and Progress</u></b>
+						</div>
+						<img src="images/Tanks.png" style="float:right">
+						<p>The year is 2093 of the Laurian calendar and the prominent nations of Erilia have just recently entered the cybernetics era. Through perfecting global information networks and the development of advanced artificial intelligence, both cultural and technological development of the entire world started to accelerate exponentially.</p>
+
+						<p>These are the times of <b>change</b>, as the first thinking and feeling robots walk the streets of <i>Yeong</i> amongst all the other humanoids, and the laboratories of <i>Simis corporation</i> produce their first bio-engineered symbiotes.</p>
+
+						<p>These are the times of <b>progress</b>, as the auto-forges of <i>Norforge Union</i> mass produce fusion powered battle tanks, and <i>Elenodor's</i> first seventh generation fighters take to the skies.</p>
+						
+					</div>
+					
+					<hr>
+					
+					<div id="HaM" class = "par">
+					
+						<div class="header">
+							<b><u>Nations and Covert Guilds</u></b>
+						</div>
+						
+						<p>Despite dangers to civilization being plentiful, the people remain divided, as they had been for thousands of years now. Be they global superpowers or small criminal gangs, differing factions play a role in all aspects of people's lives, and clash with one another on a daily basis.</p>
+
+						<p>This is the world of <b>nations</b>, where the <i>Shogunate of Chalk</i> prepares its armies for conflict with the neighbouring republic of <i>Vico</i>, and the <i>United States of Oston</i> raise their own to defend their protectorate.</p>
+
+						<p>This is the world of <b>covert guilds</b>, where the <i>Tatorincse Shadow Guard</i> slowly work their way to overthrow the corrupt politicians of <i>Boule</i>, and where said politicians use their immorally gained funds to further the goals of the <i>Cult of Yaguxoth</i>.</p>
+						
+					</div>
+					
+					<hr>
+					
+					<div class = "par">
+					
+						<div class="header">
+							<b><u>Heroes and Monsters</u></b>
+						</div>
+						
+						<p>Even though the population of humanoid races in Erilia had exceeded the mind-bogglingly large number of a billion during the past century, traveling most of the planet's surface is still immensely dangerous for a regular person. With beasts, monstrosities, and rogue humanoid bands running rampant in the wilderness, towns and settlements are often forced to contract groups of <i>adventurers</i> to solve problems that local military and law enforcement aren’t able to deal with.</p>
+
+						<p>These are the stories of <b>monsters</b>, in which <i>dire wolves</i>, <i>bandits</i>, and <i>dragons</i> terrorize the peaceful folk of Erilia.</p>
+
+						<p>These are stories of <b>you</b>, <i>adventurer</i>. It is up to <b>you</b>, to step up and save the world.</p>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+    </body>
+	
+</html>

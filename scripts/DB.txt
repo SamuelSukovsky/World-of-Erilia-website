@@ -1,0 +1,59 @@
+create table friend ( friend_id int NOT NULL,
+					  name VARCHAR(20),
+					  address VARCHAR(20),
+					  telephone VARCHAR(20),
+					  PRIMARY KEY (friend_id));
+-- Describe friend;
+
+create table hobbies ( friend_id int NOT NULL,
+					   hobby VARCHAR (20) NOT NULL,
+					   PRIMARY KEY (friend_id, hobby),
+					   FOREIGN KEY (friend_id) REFERENCES friend(friend_id));
+					   
+
+INSERT INTO friend VALUES (1, "Joe Bloggs", "2 Old Rd", "04273619");
+INSERT INTO friend VALUES (2, "Fred Bloggs", "21 New Rd", "04134816");
+INSERT INTO friend VALUES (3, "Sam Smith", "10 High St", "04291062");
+INSERT INTO friend VALUES (4, "Lucy Murphy", "37 Old Rd", "04274356");
+INSERT INTO friend VALUES (5, "John Clarke", "29 High St", "04275674");
+INSERT INTO friend VALUES (6, "Frank Smith", "12 Chapel St", "04123432");
+INSERT INTO friend VALUES (7, "Mary Clarke", "14 New Rd", "04267545");
+INSERT INTO friend VALUES (8, "Sarah Smith", "12 Chapel St", "04123432");
+INSERT INTO friend VALUES (9, "Kevin Jones", "34 High St", "04267564");
+INSERT INTO friend VALUES (10, "Laura King", "23 New Rd", "04123423");
+INSERT INTO friend VALUES (11, "Bill Daly", "45 Chapel St", "04234323");
+INSERT INTO friend VALUES (12, "Jane Smyth", "11 Chapel St", "04198783");
+INSERT INTO friend VALUES (13, "Jim Byrne", "61 New Rd", "04165215");
+INSERT INTO friend VALUES (14, "Ciara Smyth", "11 Chapel St", "04198783");
+INSERT INTO friend VALUES (15, "Ben Jones", "34 High St", "04267564");
+INSERT INTO hobbies VALUES (1, "golf");
+INSERT INTO hobbies VALUES (1, "pool");
+INSERT INTO hobbies VALUES (1, "snooker");
+INSERT INTO hobbies VALUES (2, "football");
+INSERT INTO hobbies VALUES (2, "snooker");
+INSERT INTO hobbies VALUES (3, "golf");
+INSERT INTO hobbies VALUES (3, "running");
+INSERT INTO hobbies VALUES (3, "swimming");
+INSERT INTO hobbies VALUES (4, "swimming");
+INSERT INTO hobbies VALUES (4, "tennis");
+INSERT INTO hobbies VALUES (5, "football");
+INSERT INTO hobbies VALUES (6, "pool");
+INSERT INTO hobbies VALUES (6, "squash");
+INSERT INTO hobbies VALUES (7, "running");
+INSERT INTO hobbies VALUES (8, "swimming");
+INSERT INTO hobbies VALUES (8, "tennis");
+INSERT INTO hobbies VALUES (9, "football");
+INSERT INTO hobbies VALUES (9, "golf");
+INSERT INTO hobbies VALUES (9, "tennis");
+INSERT INTO hobbies VALUES (10, "football");
+INSERT INTO hobbies VALUES (10, "squash");
+INSERT INTO hobbies VALUES (11, "swimming");
+INSERT INTO hobbies VALUES (12, "running");
+INSERT INTO hobbies VALUES (12, "squash");
+INSERT INTO hobbies VALUES (12, "swimming");
+INSERT INTO hobbies VALUES (13, "football");
+INSERT INTO hobbies VALUES (13, "golf");
+INSERT INTO hobbies VALUES (13, "snooker");
+INSERT INTO hobbies VALUES (14, "swimming");
+INSERT INTO hobbies VALUES (14, "tennis");
+INSERT INTO hobbies VALUES (15, "football");

@@ -1,0 +1,251 @@
+<!--
+CSWD  CA2 (2022) GD1b - Samuel Sukovsky
+	 
+	 built upon the foundations of 'Example 1 (CSWD 2021)' by Enda Finn.
+-->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+	
+        <title>Welcome to Erilia!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="styles/erilia.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- Setup of webpage colour palette -->
+		<style>
+			:root
+			{
+				--maincolor:rgba(255, 255, 255, .8);
+				--detail:#557777;
+				--detailhover: #779999;
+				--header:#005555;
+				--contrast:#333333;
+				--contrasthover:#555555;
+				--text:#000000;
+			}
+		</style>
+		
+    </head>
+	
+	<!-- The body of the site, contains the background image. -->
+    <body>
+	
+		<!-- The div containing everything, centered -->
+		<div id="everything">
+		
+			<!-- An empty div to make space above the content. -->
+			<div id="top"></div>
+			
+			<!-- The main div -->
+			<div id="main">
+			
+				<!-- Top and side navigation bars, html and css taken from those available at https://www.w3schools.com/css/css_navbar_vertical.asp and edited. -->
+				<ul id="topnav">
+					
+					<li>
+						<a href="index.html">
+							Home
+						</a>
+					</li>
+					
+					<li>
+						<a href="nations.html">
+							Nations
+						</a>
+					</li>
+					
+					<li>
+						<a id="active" href="newsletter.html">
+							Newsletter
+						</a>
+					</li>
+					
+				</ul>
+				
+				<div id="sidenav">
+				<!--
+					<ul>
+					
+						<li>
+							<a href="#top">
+								WoE
+							</a>
+						</li>
+					
+						<li>
+							<a href="#CaP">
+								CaP
+							</a>
+						</li>
+					
+						<li>
+							<a href="#NaCG">
+								NaCG
+							</a>
+						</li>
+						
+						<li>
+							<a href="#HaM">
+								HaM
+							</a>
+						</li>
+					
+					</ul>
+				-->
+				</div>
+				
+				<!-- A thin sticky bar -->
+				<div id="contentpadding"></div>
+				
+				<!-- The entirety of the pages content -->
+				<div id="content">					
+					
+					<div id="CaP" class = "par">
+					
+						<!-- The header -->
+						<div class="header">
+							<b><u>Sign up for our Newsletter!</u></b>
+						</div>
+						
+						<p>Have you taken a liking to Erilia, or perhaps gained interest in a more modern setting for your home games? Maybe you would enjoy some tips and tricks for creating factions, or running modern combat encounters. Or, possibly, you might be looking for some cool new homebrew rules.<!-- addition of rules pending --></p>
+						
+						<p>Tell us what you're interested in, and we'll let you know whenever we expand on Erilia and the rules that come with it!</p>
+						
+					</div>
+					
+					<!-- taken from https://www.w3schools.com/html/html_form_input_types.asp and modified -->
+					<form>
+					
+						<div class="form">
+						
+							<p></p>
+							
+							<label for="mail">Enter E-mail:</label>
+							<br>
+							<input type="text" id="mail" name="mail">
+							
+							<br>
+							
+							<label for="mailcheck">Repeat E-mail:</label>
+							<br>
+							<input type="text" id="mailcheck" name="mailcheck">
+							
+							<br><br>
+							
+							<input type="submit" value="Submit">
+							
+						</div>
+						
+						<div class="form">
+							
+							<p>I'm interested in:</p>
+							
+							<input type="checkbox" id="erilia" name="erilia">
+							<label for="erilia">World of Erilia:</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="aventures" name="aventures">
+							<label for="aventures">Adventures</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="history" name="history">
+							<label for="history">History</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="monsters" name="monsters">
+							<label for="monsters">Monsters</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="nations" name="nations">
+							<label for="nations">Nations</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="religions" name="religions">
+							<label for="religions">Religions</label>
+							
+							<br><br>
+							
+							<input type="checkbox" id="modern" name="modern">
+							<label for="modern">Running a modern setting:</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="magic" name="magic">
+							<label for="magic">Magic and science</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="worldbuilding" name="worldbuilding">
+							<label for="worldbuilding">Worldbuilding tips</label>
+							
+							<br><br>
+							
+							<input type="checkbox" id="rules" name="rules">
+							<label for="rules">Rules:</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="character" name="character">
+							<label for="character">Character options</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="combat" name="combat">
+							<label for="combat">Combat rules</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="downtime" name="downtime">
+							<label for="downtime">Downtime rules</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="exploration" name="exploration">
+							<label for="exploration">Exploration rules</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="items" name="items">
+							<label for="items">Items and prices</label>
+							
+							<br>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" id="social" name="social">
+							<label for="social">Social encounter rules</label>
+							
+							<br>
+							
+						</div>
+						
+					</form>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+    </body>
+	
+</html>
